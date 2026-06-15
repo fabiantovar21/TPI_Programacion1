@@ -49,7 +49,6 @@ def filtrar_por_superficie(lista_paises, minimo, maximo):
     return resultados
 
 #Ordenar por nombre
-
 def ordenar_por_nombre(lista_paises):
     return sorted(
         lista_paises,
@@ -57,7 +56,6 @@ def ordenar_por_nombre(lista_paises):
     )
 
 #Ordenar por población
-
 def ordenar_por_poblacion(lista_paises):
     return sorted(
         lista_paises,
@@ -65,7 +63,6 @@ def ordenar_por_poblacion(lista_paises):
     )
 
 #Ordenar por superficie
-
 #Ascendete
 def ordenar_superficie_asc(lista_paises):
     return sorted(

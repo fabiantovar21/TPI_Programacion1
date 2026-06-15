@@ -1,5 +1,5 @@
 import csv
-
+#Carga del archivo
 def cargar_paises_csv(nombre_archivo):
     lista_paises = []
     try:
@@ -29,6 +29,7 @@ def cargar_paises_csv(nombre_archivo):
     
     return lista_paises
 
+#Funcion para guardar cambio en el archivo
 def guardar_paises_csv(nombre_archivo, lista_paises):
     try:
         campos = ['nombre', 'poblacion', 'superficie', 'continente']

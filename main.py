@@ -29,6 +29,7 @@ while n!=7:
         '7) Salir\n'))
         if n < 1 or n > 7:
             print('Por favor ingrese una opción válida 1-7')
+        #Opcion 1
         elif n==1:
             nombre=validar_nombre('Ingrese el nombre del país: ')
             poblacion=validar_entero(f'Ingrese la poblacion de {nombre}: ')
@@ -40,6 +41,8 @@ while n!=7:
                 guardar_paises_csv(nombre_archivo, lista_paises)
             else:
                 print(f"\n[Error]: No se pudo agregar. El país '{nombre}' ya se encuentra registrado en el sistema.")
+
+        #Opcion 2
         elif n==2:
             nombre_buscado=validar_nombre('Ingrese el nombre del país que desea actualizar: ')
             nueva_pob=validar_entero('Ingrese la población: ')
@@ -49,9 +52,13 @@ while n!=7:
                 guardar_paises_csv(nombre_archivo, lista_paises)
             else:
                 print(f'{nombre_buscado} no encontrado')
+
+        #Opcion 3
         elif n==3:
             nombre_buscar=validar_nombre('Ingrese el país que desea buscar: ')
             coincidencia=buscar_por_nombre(lista_paises, nombre_buscar)
+
+        #Opcion 4
         elif n==4:
             opcion_filtro = int(input(
                 "\n1) Filtrar por continente\n"
@@ -89,6 +96,8 @@ while n!=7:
                 print("Opción inválida")
 
             mostrar_paises(resultados)
+
+        #Opcion 5
         elif n==5:
             opcion_orden = int(input(
             "\n1) Ordenar por nombre\n"
@@ -115,6 +124,7 @@ while n!=7:
                 
             mostrar_paises(resultados)                  
 
+        #Opcion 6
         elif n==6:
             opcion=0
             while opcion!=5:
@@ -127,12 +137,16 @@ while n!=7:
                     '5) Volver\n'))
                     if opcion < 1 or opcion > 5:
                         print('Por favor ingrese una opción válida 1-5')
+                    #opcion 1
                     elif opcion==1:
                         extremos(lista_paises)
+                    #opcion 2
                     elif opcion==2:
                         prom_pob(lista_paises)
+                    #opcion 3
                     elif opcion==3:
                         prom_sup(lista_paises)
+                    #opcion 4
                     elif opcion==4:
                         cant_paises(lista_paises)
                 except ValueError as e:
