@@ -1,6 +1,17 @@
 from validaciones import validar_entero, validar_nombre
 from gestion import agregar_pais, actualizar_datos_pais, buscar_por_nombre
 from archivos import cargar_paises_csv, guardar_paises_csv
+from procesamiento import (
+    filtrar_por_continente,
+    filtrar_por_poblacion,
+    filtrar_por_superficie,
+    ordenar_por_nombre,
+    ordenar_por_poblacion,
+    ordenar_superficie_asc,
+    ordenar_superficie_desc,
+    mostrar_paises
+)
+
 #Menú
 n=0
 nombre_archivo='paises.csv'
@@ -33,9 +44,67 @@ while n!=7:
         if n==3:
             pass
         if n==4:
-            pass
+            opcion_filtro = int(input(
+                "\n1) Filtrar por continente\n"
+                "2) Filtrar por población\n"
+                "3) Filtrar por superficie\n"
+            ))
+
+            if opcion_filtro == 1:
+                continente = input("Ingrese continente: ")
+                resultados = filtrar_por_continente(
+                    lista_paises,
+                    continente
+                )
+
+            elif opcion_filtro == 2:
+                minimo = validar_entero("Población mínima: ")
+                maximo = validar_entero("Población máxima: ")
+                resultados = filtrar_por_poblacion(
+                    lista_paises,
+                    minimo,
+                    maximo
+                )
+
+            elif opcion_filtro == 3:
+                minimo = validar_entero("Superficie mínima: ")
+                maximo = validar_entero("Superficie máxima: ")
+                resultados = filtrar_por_superficie(
+                    lista_paises,
+                    minimo,
+                    maximo
+                )
+
+            else:
+                resultados = []
+                print("Opción inválida")
+
+            mostrar_paises(resultados)
         if n==5:
-            pass
+            opcion_orden = int(input(
+            "\n1) Ordenar por nombre\n"
+            "2) Ordenar por población\n"
+            "3) Superficie ascendente\n"
+            "4) Superficie descendente\n"
+            ))
+
+            if opcion_orden == 1:
+                resultado = ordenar_por_nombre(lista_paises)
+
+            elif opcion_orden == 2:
+                resultado = ordenar_por_poblacion(lista_paises)
+
+            elif opcion_orden == 3:
+                resultado = ordenar_superficie_asc(lista_paises)
+
+            elif opcion_orden == 4:
+                resultado = ordenar_superficie_desc(lista_paises)
+
+            else:
+                resultados = []
+                print("Opción inválida")
+                
+            mostrar_paises(resultados)                  
         if n==6:
             pass
     except ValueError as e:
