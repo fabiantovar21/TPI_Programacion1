@@ -1,5 +1,5 @@
 from validaciones import validar_entero, validar_nombre
-from gestion import agregar_pais, actualizar_datos_pais, buscar_por_nombre
+from gestion import agregar_pais, actualizar_datos, buscar_por_nombre
 from archivos import cargar_paises_csv, guardar_paises_csv
 #Menú
 n=0
@@ -29,9 +29,17 @@ while n!=7:
             else:
                 print(f"\n[Error]: No se pudo agregar. El país '{nombre}' ya se encuentra registrado en el sistema.")
         if n==2:
-            pass
+            nombre_buscado=validar_nombre('Ingrese el nombre del país que desea actualizar: ')
+            nueva_pob=validar_entero('Ingrese la población: ')
+            nueva_sup=validar_entero('Ingrese la superficie: ')
+            exito=actualizar_datos(lista_paises, nombre_buscado, nueva_pob, nueva_sup)
+            if exito:
+                guardar_paises_csv(nombre_archivo, lista_paises)
+            else:
+                print(f'{nombre_buscado} no encontrado')
         if n==3:
-            pass
+            nombre_buscar=validar_nombre('Ingrese el país que desea buscar: ')
+            coincidencia=buscar_por_nombre(lista_paises, nombre_buscar)
         if n==4:
             pass
         if n==5:
