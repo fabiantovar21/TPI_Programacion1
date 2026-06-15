@@ -1,13 +1,11 @@
 #Validaciones de nombre
 def validar_nombre(msg):
     while True:
-        try:
-            nombre = input(msg).strip().title()
-            if nombre and nombre.isalpha():
-                return nombre
-            raise ValueError(f"Este campo no puede contener números ni quedar vacío")
-        except ValueError as e:
-            print(f'Error: {e}')
+        nombre = input(msg).strip().title()
+        # Reemplazamos espacios para validar que sean solo letras
+        if nombre and nombre.replace(" ", "").isalpha():
+            return nombre
+        print("Error: Este campo no puede contener números, símbolos ni quedar vacío.")
 
 #Validaciones de cantidad
 def validar_entero(msg):
