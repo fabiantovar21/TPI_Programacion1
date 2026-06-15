@@ -1,5 +1,5 @@
 import csv
-
+#Carga del archivo
 def cargar_paises_csv(nombre_archivo):
     lista_paises = []
     try:
@@ -10,7 +10,7 @@ def cargar_paises_csv(nombre_archivo):
                 if not fila['nombre'] or not fila['poblacion'] or \
                 not fila['superficie'] or not fila['continente']:
                     print(f"Advertencia: Se saltó un registro con campos vacíos.")
-                    continue  # Salta a la siguiente fila del CSV
+                    continue 
                 # Creamos diccionarios dentro de la lista_paises
                 pais = {
                     'nombre': fila['nombre'],
@@ -29,6 +29,7 @@ def cargar_paises_csv(nombre_archivo):
     
     return lista_paises
 
+#Funcion para guardar cambio en el archivo
 def guardar_paises_csv(nombre_archivo, lista_paises):
     try:
         campos = ['nombre', 'poblacion', 'superficie', 'continente']
