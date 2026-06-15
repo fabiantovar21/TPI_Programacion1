@@ -1,4 +1,4 @@
-#Validacione de nombre
+#Validaciones de nombre
 def validar_nombre(msg):
     while True:
         try:
@@ -9,7 +9,7 @@ def validar_nombre(msg):
         except ValueError as e:
             print(f'Error: {e}')
 
-#Validacione de cantidad
+#Validaciones de cantidad
 def validar_entero(msg):
     while True:
         try:
@@ -19,3 +19,7 @@ def validar_entero(msg):
             return cantidad
         except ValueError as e:
             print(f"Error: {e}")
+
+#Validar rango de población o superficie
+if minimo > maximo:
+    print("Error: el mínimo no puede ser mayor al máximo")

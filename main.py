@@ -122,7 +122,7 @@ while n!=7:
                 resultados = []
                 print("Opción inválida")
                 
-            mostrar_paises(resultados)                  
+            mostrar_paises(resultado)                  
 
         #Opcion 6
         elif n==6:
