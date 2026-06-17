@@ -4,9 +4,11 @@ def extremos(lista_paises):
     mayor=0
     menor=float('inf')
     for poblacion in lista_paises:
+        #caso mayor
         if poblacion['poblacion'] > mayor:
             mayor=poblacion['poblacion']
             pais_mayor=poblacion['nombre']
+        #caso menor
         if poblacion['poblacion'] < menor:
             menor=poblacion['poblacion']
             pais_menor=poblacion['nombre']
@@ -36,15 +38,20 @@ def cant_paises(lista_paises):
     af=0
     oc=0
     for pais in lista_paises:
-        if pais['continente']=='America':
+        #america
+        if pais['continente']=='America' or pais['continente']=='América':
             am+=1
+        #europa
         elif pais['continente']=='Europa':
             eu+=1
+        #asia
         elif pais['continente']=='Asia':
             asi+=1
-        elif pais['continente']=='Africa':
+        #africa
+        elif pais['continente']=='Africa' or pais['continente']=='África':
             af+=1
-        elif pais['continente']=='Oceania':
+        #oceania
+        elif pais['continente']=='Oceania' or pais['continente']=='Oceanía':
             oc+=1
     print(
         'Cantidad de países en America: ',am,'\n'
