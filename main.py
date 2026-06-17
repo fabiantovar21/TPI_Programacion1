@@ -66,36 +66,34 @@ while n!=7:
                 "3) Filtrar por superficie\n"
             ))
 
+            resultados = []
             if opcion_filtro == 1:
                 continente = input("Ingrese continente: ")
-                resultados = filtrar_por_continente(
-                    lista_paises,
-                    continente
-                )
+                resultados = filtrar_por_continente(lista_paises, continente)
 
             elif opcion_filtro == 2:
                 minimo = validar_entero("Población mínima: ")
                 maximo = validar_entero("Población máxima: ")
-                resultados = filtrar_por_poblacion(
-                    lista_paises,
-                    minimo,
-                    maximo
-                )
+                if minimo > maximo:
+                    print("Error: la población mínima no puede ser mayor a la máxima.")
+                else:
+                    resultados = filtrar_por_poblacion(lista_paises, minimo, maximo)
 
             elif opcion_filtro == 3:
                 minimo = validar_entero("Superficie mínima: ")
                 maximo = validar_entero("Superficie máxima: ")
-                resultados = filtrar_por_superficie(
-                    lista_paises,
-                    minimo,
-                    maximo
-                )
+                if minimo > maximo:
+                    print("Error: la superficie mínima no puede ser mayor a la máxima.")
+                else:
+                    resultados = filtrar_por_superficie(lista_paises, minimo, maximo)
 
             else:
-                resultados = []
                 print("Opción inválida")
 
-            mostrar_paises(resultados)
+            if not resultados:
+                print("No se encontraron países con esos criterios.")
+            else:
+                mostrar_paises(resultados)
 
         #Opcion 5
         elif n==5:
@@ -119,10 +117,10 @@ while n!=7:
                 resultado = ordenar_superficie_desc(lista_paises)
 
             else:
-                resultados = []
+                resultado = []
                 print("Opción inválida")
-                
-            mostrar_paises(resultado)                  
+
+            mostrar_paises(resultado)
 
         #Opcion 6
         elif n==6:
@@ -153,3 +151,6 @@ while n!=7:
                     print(f'Error: {e}')
     except ValueError as e:
         print(f'Error: {e}')
+
+if n==7:
+    print('¡Gracias por usar el programa! - Saliendo...')

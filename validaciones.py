@@ -17,7 +17,3 @@ def validar_entero(msg):
             return cantidad
         except ValueError as e:
             print(f"Error: {e}")
-
-#Validar rango de población o superficie
-if minimo > maximo:
-    print("Error: el mínimo no puede ser mayor al máximo")
