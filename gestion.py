@@ -26,8 +26,7 @@ def actualizar_datos(lista_paises, nombre_buscado, nueva_pob, nueva_sup):
 def buscar_por_nombre(lista_paises, nombre_buscar):
     nombre_buscar_min = nombre_buscar.lower()
     for pais in lista_paises:
-        if nombre_buscar_min in pais['nombre'].lower(): 
-            #print(f'nombre: {pais['nombre']} | poblacion: {pais['poblacion']} | superficie: {pais['superficie']} | continente: {pais['continente']}')
+        if nombre_buscar_min in pais['nombre'].lower():
             print(
                 f"Nombre: {pais['nombre']} | "
                 f"Población: {pais['poblacion']} | "

@@ -20,6 +20,7 @@ def cargar_paises_csv(nombre_archivo):
                 }
                 lista_paises.append(pais)
         print(f"Éxito: Se cargaron {len(lista_paises)} países correctamente.")
+    #casos de error
     except FileNotFoundError:
         print(f"Error: No se encontró el archivo '{nombre_archivo}'.")
     except ValueError:
@@ -39,7 +40,7 @@ def guardar_paises_csv(nombre_archivo, lista_paises):
             escritor.writerows(lista_paises)
             
         print("Datos guardados exitosamente en el archivo CSV.")
-        return True
+        return True #exito en guardar datos
     except Exception as e:
         print(f"Error al intentar guardar los datos: {e}")
-        return False
+        return False #error en guardar datos

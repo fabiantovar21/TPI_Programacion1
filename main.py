@@ -1,3 +1,4 @@
+#importar funciones de los distintos módulos
 from validaciones import validar_entero, validar_nombre
 from gestion import agregar_pais, actualizar_datos, buscar_por_nombre
 from archivos import cargar_paises_csv, guardar_paises_csv
@@ -31,10 +32,12 @@ while n!=7:
             print('Por favor ingrese una opción válida 1-7')
         #Opcion 1
         elif n==1:
+            #datos a ingresar del usuario
             nombre=validar_nombre('Ingrese el nombre del país: ')
             poblacion=validar_entero(f'Ingrese la poblacion de {nombre}: ')
             superficie=validar_entero(f'Ingrese la superficie de {nombre} en km2: ')
             continente=validar_nombre(f'Ingrese el continente de {nombre}: ')
+            #llamada a la funcion agregar pais y caso de exito
             exito=agregar_pais(lista_paises,nombre,poblacion,superficie,continente)
             if exito:
                 print(f"\n¡Éxito! El país '{nombre}' se registró correctamente en la memoria.")
@@ -44,9 +47,11 @@ while n!=7:
 
         #Opcion 2
         elif n==2:
+            #datos a ingresar del usuario
             nombre_buscado=validar_nombre('Ingrese el nombre del país que desea actualizar: ')
             nueva_pob=validar_entero('Ingrese la población: ')
             nueva_sup=validar_entero('Ingrese la superficie: ')
+            #llamada a la funcion actualizar datos y caso de exito
             exito=actualizar_datos(lista_paises, nombre_buscado, nueva_pob, nueva_sup)
             if exito:
                 guardar_paises_csv(nombre_archivo, lista_paises)
@@ -55,6 +60,7 @@ while n!=7:
 
         #Opcion 3
         elif n==3:
+            #llamada a la funcion validar nombre
             nombre_buscar=validar_nombre('Ingrese el país que desea buscar: ')
             coincidencia=buscar_por_nombre(lista_paises, nombre_buscar)
 
@@ -126,6 +132,7 @@ while n!=7:
 
         #Opcion 6
         elif n==6:
+            #sub-menú de opciones para estadisticas
             opcion=0
             while opcion!=5:
                 try:
@@ -137,16 +144,16 @@ while n!=7:
                     '5) Volver\n'))
                     if opcion < 1 or opcion > 5:
                         print('Por favor ingrese una opción válida 1-5')
-                    #opcion 1
+                    #opcion 1: paises con menor y mayor cantidad de poblacion
                     elif opcion==1:
                         extremos(lista_paises)
-                    #opcion 2
+                    #opcion 2: promedio de poblaciones
                     elif opcion==2:
                         prom_pob(lista_paises)
-                    #opcion 3
+                    #opcion 3: promedio se superficies
                     elif opcion==3:
                         prom_sup(lista_paises)
-                    #opcion 4
+                    #opcion 4: cantidad de paises por continente
                     elif opcion==4:
                         cant_paises(lista_paises)
                 except ValueError as e:
